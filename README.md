@@ -15,7 +15,7 @@ It provides secure user registration, login, JWT-based authentication, role mana
 
 ## 🌐 Live Demo
 - **Backend API**: [my-auth-service-wf2a.onrender.com](https://my-auth-service-wf2a.onrender.com/)  
-- **Frontend App**: [my-auth-service.vercel.app](https://my-auth-service-olsywxwho-oms-projects-76777c3b.vercel.app/)
+- **Frontend App**: [my-auth-service.vercel.app](https://my-auth-service-two.vercel.app/)
 
 ---
 
