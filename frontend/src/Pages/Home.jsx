@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import "./Home.css";
 import { redirect, useNavigate } from "react-router-dom";
@@ -41,6 +41,29 @@ export default function Home() {
   ];
 
   const navigate = useNavigate();
+  
+
+  const [isActive, setIsActive] = useState(false);
+  const envMode = import.meta.env.VITE_dev;
+ // console.log(envMode)
+  const APP_URL = envMode === "local"?`${import.meta.env.VITE_BACKEND_LOCAL_URL}`:`${import.meta.env.VITE_BACKEND_ONLINE_URL}`;
+  // console.log(APP_URL)
+
+  const checkAvailable = async() =>{
+    try{
+      const response = await fetch(APP_URL)
+      if (response.ok) {
+        setIsActive(true)
+      }
+      
+    }catch(error){
+      console.log(error)
+    }
+  };
+
+  useEffect(()=>{
+    checkAvailable()
+  },[])
 
   return (
     <div className="home">
@@ -135,6 +158,19 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <div className="tech-grid" style={{  "display":"flex","justifyContent":"center", "alignItems":"center","gap":"10px"}}>
+        <div style={{
+          width: "25px",
+          height: "25px",
+          border: "2px solid black",
+          borderRadius: "50%",
+          backgroundColor: isActive?"green":"red",
+        }} 
+        >
+        </div>
+        <div>Backend Status</div>
+      </div>
 
       {/* Footer */}
       <footer className="footer">
