@@ -33,3 +33,9 @@ It provides secure user registration, login, JWT-based authentication, role mana
 4. Manage roles and permissions through the backend service.
 
 ---
+
+## Local Running Commands
+- **Frontend**: npm run dev
+- **Backend**: mvn clean spring-boot:run
+
+---
